@@ -42,5 +42,22 @@
 
 )
 
-(add-hook 'markdown-mode-hook 'markdown-mode-config)
-(add-hook 'gfm-mode-hook 'markdown-mode-config)
+(add-hook! 'markdown-mode-hook 'markdown-mode-config)
+(add-hook! 'gfm-mode-hook 'markdown-mode-config)
+
+;; A bit more breathing room for git commit summaries.
+;; This returns git-commit-summary-max-length to magit's default.
+
+(defun +vc|enforce-git-commit-conventions ()
+  (setq fill-column 72
+        git-commit-summary-max-length 68
+        git-commit-style-convention-checks '(overlong-summary-line non-empty-second-line)))
+
+;; Fonts
+
+(if (eq system-type 'gnu/linux)
+    (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 13)))
+
+;; Avoid [Display not ready] errors
+
+(setq helm-exit-idle-delay 0)
