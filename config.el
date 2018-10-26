@@ -18,7 +18,10 @@
 (add-to-list 'auto-mode-alist '(".sp\\'" . sourcepawn-mode))
 (add-to-list 'auto-mode-alist '(".inc\\'" . sourcepawn-mode))
 
+;; typopunct
+
 (load! "typopunct")
+(map! :desc "Typopunct" :n "SPC t t" #'typopunct-mode)
 
 ;; markdown-mode
 
