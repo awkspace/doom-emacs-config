@@ -64,3 +64,9 @@
 ;; Avoid [Display not ready] errors
 
 (setq helm-exit-idle-delay 0)
+
+;; Writing commands
+
+(map! :leader
+      (:desc "author" :prefix "a"
+        :desc "Paragraph fill"       :nv "p" #'fill-paragraph))
