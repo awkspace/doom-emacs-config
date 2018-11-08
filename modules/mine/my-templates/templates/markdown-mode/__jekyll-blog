@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# group: file templates
+# --
+---
+layout: post
+title: ${1:Untitled}
+tags:
+  - ${2:uncategorized}
+---
+
+$0
