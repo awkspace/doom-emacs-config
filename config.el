@@ -26,6 +26,8 @@
 ;; markdown-mode
 
 (defun markdown-mode-config ()
+  (interactive)
+
   (set-fill-column 80)
   (turn-on-auto-fill)
   (typopunct-change-language 'english t)
@@ -42,6 +44,10 @@
   (defconst markdown-regex-comment-end
     "{%\\(?:\s*\\|\n\\)endcomment\\(?:\s*\\|\n\\)%}"
     "Regular expression matches Liquid comment closing.")
+
+  ;; Use a more writerly font for markdown-mode.
+  (setq buffer-face-mode-face '(:family "Go Mono"))
+  (buffer-face-mode)
 
 )
 
