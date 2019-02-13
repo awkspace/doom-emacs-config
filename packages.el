@@ -8,3 +8,4 @@
 
 (package! dockerfile-mode)
 (package! groovy-mode)
+(package! docker-tramp)
