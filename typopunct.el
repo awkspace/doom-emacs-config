@@ -3,8 +3,9 @@
 ;; Copyright (C) 2003  Free Software Foundation, Inc.
 
 ;; Author: Oliver Scholz <epameinondas@gmx.de>
+;; Maintainer: awk <self@awk.space>
 ;; Keywords: wp
-;; Version: 1.0
+;; Version: 1.1
 ;; URL: http://www.emacswiki.org/emacs/TypographicalPunctuationMarks
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -40,16 +41,21 @@
 (defconst typopunct-em-dash
   (decode-char 'ucs #x2014))
 
+(defconst typopunct-hair-space
+  (decode-char 'ucs #x200a))
+
 (defun typopunct-insert-typographical-dashes ()
   "Insert a dashes, an en-dash or an em-dash."
   (interactive)
   (cond ((eq (char-before) ?-)
-	 (delete-char -1)
-	 (insert typopunct-en-dash))
-	((eq (char-before) typopunct-en-dash)
-	 (delete-char -1)
-	 (insert typopunct-em-dash))
-	(t (insert ?-))))
+         (delete-char -1)
+         (insert typopunct-en-dash))
+        ((eq (char-before) typopunct-en-dash)
+         (delete-char -1)
+         (insert typopunct-hair-space)
+         (insert typopunct-em-dash)
+         (insert typopunct-hair-space))
+        (t (insert ?-))))
 
 (defvar typopunct-map
   (let ((map (make-sparse-keymap)))
