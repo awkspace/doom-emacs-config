@@ -46,7 +46,7 @@
     "Regular expression matches Liquid comment closing.")
 
   ;; Use a more writerly font for markdown-mode.
-  (setq buffer-face-mode-face '(:family "Go Mono"))
+  (buffer-face-set '(:family "Go Mono"))
   (buffer-face-mode)
 
 )
