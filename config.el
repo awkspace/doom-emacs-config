@@ -26,7 +26,6 @@
 ;; markdown-mode
 
 (defun markdown-mode-config ()
-  (interactive)
 
   (set-fill-column 80)
   (turn-on-auto-fill)
@@ -46,8 +45,10 @@
     "Regular expression matches Liquid comment closing.")
 
   ;; Use a more writerly font for markdown-mode.
-  (buffer-face-set '(:family "Go Mono"))
-  (buffer-face-mode)
+  (defface markdown-mode-default-face
+    '((t (:inherit default :family "Go Mono")))
+    "Markdown default face")
+  (face-remap-add-relative 'default 'markdown-mode-default-face)
 
 )
 
