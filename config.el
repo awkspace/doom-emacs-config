@@ -68,7 +68,15 @@
     "{%\\(?:\s*\\|\n\\)endcomment\\(?:\s*\\|\n\\)%}"
     "Regular expression matches Liquid comment closing.")
 
+  ;; Hack to get markdown-mode to re-eval after setting the above consts.
+
+  (if (eq markdown-mode-rerun nil)
+      (progn (setq markdown-mode-rerun t)
+             (markdown-mode)))
+
 )
+
+(setq markdown-mode-rerun nil)
 
 (add-hook! 'markdown-mode-hook 'markdown-mode-config)
 (add-hook! 'gfm-mode-hook 'markdown-mode-config)
