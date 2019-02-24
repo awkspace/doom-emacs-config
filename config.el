@@ -44,12 +44,6 @@
     "{%\\(?:\s*\\|\n\\)endcomment\\(?:\s*\\|\n\\)%}"
     "Regular expression matches Liquid comment closing.")
 
-  ;; Use a more writerly font for markdown-mode.
-  (defface markdown-mode-default-face
-    '((t (:inherit default :family "Go Mono")))
-    "Markdown default face")
-  (face-remap-add-relative 'default 'markdown-mode-default-face)
-
 )
 
 (add-hook! 'markdown-mode-hook 'markdown-mode-config)
