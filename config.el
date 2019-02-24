@@ -23,6 +23,30 @@
 (load! "typopunct")
 (map! :desc "Typopunct" :n "SPC t t" #'typopunct-mode)
 
+;; Fonts
+
+(setq writerly-font-active nil)
+(setq default-font (font-spec :family "DejaVu Sans Mono" :size 13))
+(setq writerly-font (font-spec :family "Go Mono" :size 13))
+
+(defun toggle-writerly-font ()
+  (interactive)
+  (if (eq writerly-font-active t)
+      (progn
+        (setq doom-font default-font)
+        (set-frame-font default-font)
+        (setq writerly-font-active nil))
+    (progn
+      (setq doom-font writerly-font)
+      (set-frame-font writerly-font)
+      (setq writerly-font-active t))
+    ))
+
+(if (eq system-type 'gnu/linux)
+    (progn
+      (setq doom-font default-font)
+      (map! :desc "Writerly font" :n "SPC t w" #'toggle-writerly-font)))
+
 ;; markdown-mode
 
 (defun markdown-mode-config ()
@@ -82,11 +106,6 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (setq fill-column 72
         git-commit-summary-max-length 68
         git-commit-style-convention-checks '(overlong-summary-line non-empty-second-line)))
-
-;; Fonts
-
-(if (eq system-type 'gnu/linux)
-    (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 13)))
 
 ;; Avoid [Display not ready] errors
 
