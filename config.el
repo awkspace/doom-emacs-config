@@ -26,7 +26,7 @@
 ;; Fonts
 
 (setq writerly-font-active nil)
-(setq default-font (font-spec :family "DejaVu Sans Mono" :size 13))
+(setq default-font (font-spec :family "Noto Mono" :size 13))
 (setq writerly-font (font-spec :family "Go Mono" :size 13))
 
 (defun toggle-writerly-font ()
@@ -42,10 +42,8 @@
       (setq writerly-font-active t))
     ))
 
-(if (eq system-type 'gnu/linux)
-    (progn
-      (setq doom-font default-font)
-      (map! :desc "Writerly font" :n "SPC t w" #'toggle-writerly-font)))
+(setq doom-font default-font)
+(map! :desc "Writerly font" :n "SPC t w" #'toggle-writerly-font)
 
 ;; markdown-mode
 
