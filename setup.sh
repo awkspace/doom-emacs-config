@@ -13,8 +13,8 @@ fi
 
 if [ -d ~/.emacs.d ]
 then
-    rm -rf ~/.emacs.d/.local/packages.bak
-    mv ~/.emacs.d/.local/packages ~/.emacs.d/.local/packages.bak
+    yes | ~/.emacs.d/bin/doom upgrade
+    yes | ~/.emacs.d/bin/doom update
 else
     git clone https://github.com/hlissner/doom-emacs ~/.emacs.d -b develop -o github
 fi
