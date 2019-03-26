@@ -122,3 +122,9 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 (map! :leader
       (:desc "author" :prefix "a"
         :desc "Paragraph fill"       :nv "p" #'fill-paragraph))
+
+;; python3
+
+(setq python-shell-interpreter "python3"
+      flycheck-python-flake8-executable "python3"
+      flycheck-python-pycompile-executable "python3")
