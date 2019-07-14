@@ -14,7 +14,6 @@ fi
 if [ -d ~/.emacs.d ]
 then
     yes | ~/.emacs.d/bin/doom upgrade
-    yes | ~/.emacs.d/bin/doom update
 else
     git clone https://github.com/hlissner/doom-emacs ~/.emacs.d -b develop -o github
 fi
