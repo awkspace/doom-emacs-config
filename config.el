@@ -4,6 +4,11 @@
 
 (windmove-default-keybindings)
 
+;; Do not ignore files over SSH in recentf
+
+(after! recentf
+  (setq recentf-exclude (delete "^/ssh:" recentf-exclude)))
+
 ;; sourcepawn-mode
 
 (define-derived-mode sourcepawn-mode c-mode
