@@ -28,6 +28,9 @@
 (load! "typopunct")
 (map! :desc "Typopunct" :n "SPC t t" #'typopunct-mode)
 
+;; easier comment toggle
+(map! :desc "Comment line" :nv "SPC c ;" #'comment-line)
+
 ;; Fonts
 
 (setq writerly-font-active nil)
