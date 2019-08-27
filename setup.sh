@@ -18,5 +18,5 @@ else
     git clone https://github.com/hlissner/doom-emacs ~/.emacs.d -b develop -o github
 fi
 
-cd ~/.emacs.d && yes | make quickstart
+yes | ~/.emacs.d/bin/doom refresh
 cd
