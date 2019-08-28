@@ -51,7 +51,7 @@
     ))
 
 (setq doom-font default-font)
-(map! :desc "Writerly font" :n "SPC t w" #'toggle-writerly-font)
+(map! :desc "Writerly font" :n "SPC a f" #'toggle-writerly-font)
 
 ;; markdown-mode
 
