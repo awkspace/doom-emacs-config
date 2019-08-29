@@ -13,7 +13,7 @@ fi
 
 if [ -d ~/.emacs.d ]
 then
-    { cd ~/.emacs.d; git pull --rebase; }
+    git -C ~/.emacs.d pull --rebase
     yes | ~/.emacs.d/bin/doom upgrade
 else
     git clone https://github.com/hlissner/doom-emacs ~/.emacs.d -b develop -o github
