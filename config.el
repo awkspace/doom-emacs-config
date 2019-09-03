@@ -9,6 +9,12 @@
 (after! recentf
   (setq recentf-exclude (delete "^/ssh:" recentf-exclude)))
 
+;; magit-todos misbehaves over tramp
+(defadvice! +magit--disable-todos-over-tramp-a (orig-fn)
+  :around #'magit-todos--insert-todos
+  (unless (file-remote-p default-directory)
+    (funcall orig-fn)))
+
 ;; sourcepawn-mode
 
 (define-derived-mode sourcepawn-mode c-mode
@@ -109,9 +115,9 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
                             (id "E" (one-or-more digit)) ":" (message) line-end)
                      )
     :modes (cfn-mode)
-    )
-    (add-to-list 'flycheck-checkers 'cfn-lint)
   )
+  (add-to-list 'flycheck-checkers 'cfn-lint)
+)
 
 ;; A bit more breathing room for git commit summaries.
 ;; This returns git-commit-summary-max-length to magit's default.
