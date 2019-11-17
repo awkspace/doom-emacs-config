@@ -9,3 +9,4 @@
 (package! dockerfile-mode)
 (package! groovy-mode)
 (package! docker-tramp)
+(package! writeroom-mode)

@@ -57,7 +57,6 @@
     ))
 
 (setq doom-font default-font)
-(map! :desc "Writerly font" :n "SPC a f" #'toggle-writerly-font)
 
 ;; markdown-mode
 
@@ -133,8 +132,26 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; Writing commands
 
+(setq author-mode-active nil)
+(defun toggle-author-mode ()
+  (interactive)
+  (if (eq author-mode-active t)
+      (progn
+        (display-line-numbers-mode 1)
+        (writeroom-mode -1)
+        (if (eq writerly-font-active t) (toggle-writerly-font))
+        (setq author-mode-active nil))
+    (progn
+      (display-line-numbers-mode -1)
+      (writeroom-mode 1)
+      (if (eq writerly-font-active nil) (toggle-writerly-font))
+      (setq author-mode-active t))
+    ))
+
 (map! :leader
       (:desc "author" :prefix "a"
+        :desc "Author mode"          :n "a" #'toggle-author-mode
+        :desc "Writerly font"        :n "f" #'toggle-writerly-font
         :desc "Paragraph fill"       :nv "p" #'fill-paragraph))
 
 ;; python3
