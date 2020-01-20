@@ -130,6 +130,18 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (setq helm-exit-idle-delay 0)
 
+;; yaml-mode fixes
+;; yaml-mode derives from text-mode, which loads things you'd normally want
+;; when editing text, like flyspell and auto-fill-mode. But yaml is
+;; configuration, not text, and these frequently get in the way.
+
+(defun fix-yaml-mode ()
+  (flyspell-mode -1)
+  (auto-fill-mode -1)
+  )
+
+(add-hook! 'yaml-mode-hook 'fix-yaml-mode)
+
 ;; Writing commands
 
 (setq author-mode-active nil)
