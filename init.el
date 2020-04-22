@@ -107,8 +107,8 @@
         +capture         ; org-capture in and outside of Emacs
         +export          ; Exporting org to whatever you want
         +present)        ; Emacs for presentations
-       ;;perl              ; write code no one else can comprehend
-       ;;php               ; perl's insecure younger brother
+       perl              ; write code no one else can comprehend
+       php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        (python
