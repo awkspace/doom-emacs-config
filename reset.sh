@@ -1,4 +1,4 @@
 #!/bin/sh
 
-rm -rf ~/.emacs.d/.local/{autoloads.*,elpa,straight}
-yes | ~/.emacs.d/bin/doom install
+rm -rf ~/.emacs.d/.local/{autoloads.*,elpa,straight,etc}
+yes | ~/.emacs.d/bin/doom refresh
