@@ -21,5 +21,6 @@ else
   git clone https://github.com/hlissner/doom-emacs ~/.emacs.d -b develop -o github
 fi
 
+yes | ~/.emacs.d/bin/doom sync
 yes | ~/.emacs.d/bin/doom upgrade
 yes | ~/.emacs.d/bin/doom refresh
