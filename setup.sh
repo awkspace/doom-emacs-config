@@ -23,4 +23,3 @@ fi
 
 yes | ~/.emacs.d/bin/doom sync
 yes | ~/.emacs.d/bin/doom upgrade
-yes | ~/.emacs.d/bin/doom refresh
