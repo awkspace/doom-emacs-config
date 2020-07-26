@@ -7,6 +7,12 @@ wget -O- https://raw.githubusercontent.com/awkspace/doom-emacs-config/master/set
 ```
 ## Fonts
 
+### Debian
+
+``` bash
+apt-get install -y fonts-go fonts-noto-mono
+```
+
 ### Homebrew
 
 ```bash
