@@ -8,6 +8,38 @@
 
 (put 'customize-themes 'disabled nil)
 
+;; org-mode
+(after! org
+  (setq org-todo-keywords
+        '((sequence
+           "STRT(s)"  ; A task that is in progress
+           "TODO(t)"  ; A task that needs doing & is ready to do
+           "PROJ(p)"  ; A project, which usually contains other tasks
+           "WAIT(w)"  ; Something external is holding up this task
+           "HOLD(h)"  ; This task is paused/on hold because of me
+           "|"
+           "DONE(d)"  ; Task successfully completed
+           "KILL(k)") ; Task was cancelled, aborted or is no longer applicable
+          (sequence
+           "[-](S)"   ; Task is in progress
+           "[ ](T)"   ; A task that needs doing
+           "[?](W)"   ; Task is being held up or paused
+           "|"
+           "[X](D)")) ; Task was completed
+        org-todo-keyword-faces
+        '(("[-]"  . +org-todo-active)
+          ("STRT" . +org-todo-active)
+          ("[?]"  . +org-todo-onhold)
+          ("WAIT" . +org-todo-onhold)
+          ("HOLD" . +org-todo-onhold)
+          ("PROJ" . +org-todo-project)))
+  (setq org-agenda-dim-blocked-tasks nil)
+  (setq org-agenda-sorting-strategy
+        '((agenda habit-down time-up priority-down category-keep)
+         (todo   todo-state-up priority-down category-keep)
+         (tags   priority-down category-keep)
+         (search category-keep))))
+
 ;; Do not ignore files over SSH in recentf
 
 (after! recentf
