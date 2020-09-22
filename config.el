@@ -1,9 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Set window movement keybindings to default (shift + arrow)
-
-(windmove-default-keybindings)
-
 ;; Give me my themes back! >:(
 
 (put 'customize-themes 'disabled nil)
