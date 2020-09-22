@@ -173,34 +173,19 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (defun fix-yaml-mode ()
   (flyspell-mode -1)
-  (auto-fill-mode -1)
-  )
+  (auto-fill-mode -1))
 
 (add-hook! 'yaml-mode-hook 'fix-yaml-mode)
 
-;; Writing commands
+;; Writing stuff
 
-(setq author-mode-active nil)
-(defun toggle-author-mode ()
-  (interactive)
-  (if (eq author-mode-active t)
-      (progn
-        (display-line-numbers-mode 1)
-        (writeroom-mode -1)
-        (if (eq writerly-font-active t) (toggle-writerly-font))
-        (setq author-mode-active nil))
-    (progn
-      (display-line-numbers-mode -1)
-      (writeroom-mode 1)
-      (if (eq writerly-font-active nil) (toggle-writerly-font))
-      (setq author-mode-active t))
-    ))
+(setq olivetti-body-width 80)
 
 (map! :leader
       (:desc "author" :prefix "a"
-        :desc "Author mode"          :n "a" #'toggle-author-mode
-        :desc "Writerly font"        :n "f" #'toggle-writerly-font
-        :desc "Paragraph fill"       :nv "p" #'fill-paragraph))
+       :desc "Olivetti mode"   :n  "a" #'olivetti-mode
+       :desc "Writerly font"   :n  "f" #'toggle-writerly-font
+       :desc "Paragraph fill"  :nv "p" #'fill-paragraph))
 
 ;; python3
 

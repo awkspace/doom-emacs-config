@@ -9,5 +9,5 @@
 (package! dockerfile-mode)
 (package! groovy-mode)
 (package! docker-tramp)
-(package! writeroom-mode)
 (package! yaml-mode)
+(package! olivetti)
