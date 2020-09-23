@@ -193,6 +193,11 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
        :desc "Writerly font"   :n  "f" #'toggle-writerly-font
        :desc "Paragraph fill"  :nv "p" #'fill-paragraph))
 
+;; spellcheck
+
+(after! flyspell-correct
+  (map! [remap ispell-word] nil))
+
 ;; python3
 
 (setq python-shell-interpreter "python3"
