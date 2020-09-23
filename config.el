@@ -195,8 +195,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; spellcheck
 
-(after! flyspell-correct
-  (map! [remap ispell-word] nil))
+(map! [remap ispell-word] nil)
 
 ;; python3
 
