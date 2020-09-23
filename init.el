@@ -139,7 +139,8 @@
        ;;impatient-mode    ; show off code over HTTP
 
        :checkers
-       spell
+       (spell
+        +flyspell)
        syntax
 
        :config
