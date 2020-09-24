@@ -195,7 +195,11 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; spellcheck
 
+; undo remapping of ispell-word
 (map! [remap ispell-word] nil)
+
+; https://github.com/hlissner/doom-emacs/issues/3592
+(remove-hook! 'text-mode-hook #'+spell-remove-run-together-switch-for-aspell-h)
 
 ;; python3
 
