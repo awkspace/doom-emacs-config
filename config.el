@@ -41,10 +41,10 @@
                                  "* TODO %?" :prepend t)
                                 ("n" "Personal notes" entry
                                  (file+headline +org-capture-notes-file "Inbox")
-                                 "* %u %?\n%i\n%a" :prepend t)
+                                 "* %u %?" :prepend t)
                                 ("j" "Journal" entry
                                  (file+olp+datetree +org-capture-journal-file)
-                                 "* %U %?\n%i\n%a" :prepend t))))
+                                 "* %U %?" :prepend t))))
 
 ;; Do not ignore files over SSH in recentf
 
