@@ -201,8 +201,10 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 ; https://github.com/hlissner/doom-emacs/issues/3592
 (remove-hook! 'text-mode-hook #'+spell-remove-run-together-switch-for-aspell-h)
 
-;; python3
+;; python
 
 (setq python-shell-interpreter "python3"
       flycheck-python-flake8-executable "python3"
       flycheck-python-pycompile-executable "python3")
+
+(setq python-pytest-executable "python3 -m pytest")
