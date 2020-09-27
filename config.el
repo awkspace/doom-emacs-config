@@ -208,3 +208,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
       flycheck-python-pycompile-executable "python3")
 
 (setq python-pytest-executable "python3 -m pytest")
+
+(map! :localleader
+      :map python-mode-map
+      "t" #'python-pytest-dispatch)
