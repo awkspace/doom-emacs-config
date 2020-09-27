@@ -4,6 +4,10 @@
 
 (put 'customize-themes 'disabled nil)
 
+;; more sensible comint defaults
+
+(setq comint-prompt-read-only nil)
+
 ;; org-mode
 
 (after! org
@@ -210,8 +214,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 (setq python-pytest-executable "python3 -m pytest")
 
 (add-hook! 'python-mode-hook
-  (progn
     (map! :localleader :map python-mode-map "t" nil)
     (map! :localleader
           :map python-mode-map
-          "t" #'python-pytest-dispatch)))
+          "t" #'python-pytest-dispatch))
