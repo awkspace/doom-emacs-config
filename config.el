@@ -218,4 +218,5 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
     (map! :localleader
           :map python-mode-map
           "t" #'python-pytest-dispatch)
-    (pyvenv-tracking-mode t))
+    (pyvenv-mode 1)
+    (pyvenv-tracking-mode 1))
