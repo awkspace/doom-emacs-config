@@ -157,3 +157,6 @@
 
        :mine
        my-templates)
+
+;; disable python-pytest's init block
+(use-package-hook! python-pytest :pre-init nil)
