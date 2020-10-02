@@ -48,7 +48,9 @@
                                  "* %u %?" :prepend t)
                                 ("j" "Journal" entry
                                  (file+olp+datetree +org-capture-journal-file)
-                                 "* %U %?" :prepend t))))
+                                 "* %U %?" :prepend t)))
+  (setq org-log-done t)
+  (setq org-log-done-with-time nil))
 
 ;; Do not ignore files over SSH in recentf
 
