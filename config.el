@@ -71,7 +71,8 @@
 
   (font-lock-add-keywords nil '(("\\<\\([A-Za-z]+\\|_\\):" . font-lock-builtin-face)))
   (setq-local indent-line-function 'c-indent-line)
-  (setq-local tab-width 2)
+  (setq-local tab-width 4)
+  (setq-local c-basic-offset 4)
 )
 
 (add-to-list 'auto-mode-alist '(".sp\\'" . sourcepawn-mode))
