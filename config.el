@@ -221,3 +221,12 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (map! :localleader
         :map python-mode-map
         "t" #'python-pytest-dispatch))
+
+;; zpresent
+
+(defun zpresent-mode-config ()
+  (map! :map zpresent-mode-map :n [right] #'zpresent--next-slide)
+  (map! :map zpresent-mode-map :n [left] #'zpresent--previous-slide)
+  (map! :map zpresent-mode-map :n "q" #'kill-current-buffer))
+
+(add-hook! 'zpresent-mode-hook 'zpresent-mode-config)
