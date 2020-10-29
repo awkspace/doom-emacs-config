@@ -50,7 +50,8 @@
                                  (file+olp+datetree +org-capture-journal-file)
                                  "* %U %?" :prepend t)))
   (setq org-log-done t)
-  (setq org-log-done-with-time nil))
+  (setq org-log-done-with-time nil)
+  (map! :localleader :map org-mode-map :n "z" #'zpresent))
 
 ;; Do not ignore files over SSH in recentf
 
