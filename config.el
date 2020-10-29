@@ -225,6 +225,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 ;; zpresent
 
 (defun zpresent-mode-config ()
+  (setq zpresent-fullscreen-on-zpresentation nil)
   (map! :map zpresent-mode-map :n [right] #'zpresent--next-slide)
   (map! :map zpresent-mode-map :n [left] #'zpresent--previous-slide)
   (map! :map zpresent-mode-map :n "q" #'kill-current-buffer))
