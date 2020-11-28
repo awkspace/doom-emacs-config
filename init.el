@@ -6,7 +6,8 @@
 
        :completion
        (company          ; the ultimate code completion backend
-        +auto)           ; as-you-type code completion
+        +auto
+        +tng)           ; as-you-type code completion
        ;;ido               ; the other *other* search engine...
        (ivy              ; a search engine for love and life
         +fuzzy)          ; enable fuzzy search backend for ivy

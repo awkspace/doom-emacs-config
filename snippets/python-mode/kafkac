@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: kafkac
+# key: kafkac
+# --
+
+consumer = Consumer({
+    'bootstrap.servers': 'kafka.brokers:9092',
+    'auto.offset.reset': 'smallest',
+    'group.id': None
+})

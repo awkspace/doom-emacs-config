@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Kafka producer
+# key: kafkap
+# --
+producer = Producer({
+    'bootstrap.servers': os.environ.get('BROKER_BOOTSTRAP'),
+    'acks': 'all'
+})

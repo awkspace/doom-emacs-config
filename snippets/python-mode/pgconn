@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: pgconn
+# key: pgconn
+# --
+conn = psycopg2.connect(
+    user=os.environ['PG_USER'],
+    password=os.environ['PG_PASSWORD'],
+    host=os.environ['PG_HOST'],
+    database=os.environ['PG_DATABASE'],
+    cursor_factory=psycopg2.extras.RealDictCursor
+)

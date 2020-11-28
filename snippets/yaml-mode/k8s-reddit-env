@@ -1,0 +1,39 @@
+# -*- mode: snippet -*-
+# name: k8s-reddit-env
+# key: k8s-reddit-env
+# --
+            - name: REDDIT_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: reddit
+                  key: username
+            - name: REDDIT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: reddit
+                  key: password
+            - name: REDDIT_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: reddit
+                  key: client_id
+            - name: REDDIT_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: reddit
+                  key: client_secret
+            - name: REDDIT_USER_AGENT
+              valueFrom:
+                configMapKeyRef:
+                  name: reddit
+                  key: user_agent
+            - name: REDDIT_OAUTH_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: reddit
+                  key: oauth_url
+            - name: REDDIT_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: reddit
+                  key: reddit_url

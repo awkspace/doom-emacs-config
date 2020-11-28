@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: praw-config
+# key: praw-config
+# --
+r = praw.Reddit(
+    username=os.environ.get('REDDIT_USERNAME'),
+    password=os.environ.get('REDDIT_PASSWORD'),
+    client_id=os.environ.get('REDDIT_CLIENT_ID'),
+    client_secret=os.environ.get('REDDIT_CLIENT_SECRET'),
+    user_agent=os.environ.get('REDDIT_USER_AGENT'),
+    oauth_url=os.environ.get('REDDIT_OAUTH_URL'),
+    reddit_url=os.environ.get('REDDIT_URL')
+)
