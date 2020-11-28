@@ -187,7 +187,8 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (defun fix-yaml-mode ()
   (flyspell-mode -1)
-  (auto-fill-mode -1))
+  (auto-fill-mode -1)
+  (setq yas-indent-line 'fixed))
 
 (add-hook! 'yaml-mode-hook 'fix-yaml-mode)
 
