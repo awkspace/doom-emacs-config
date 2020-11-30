@@ -1,10 +1,11 @@
 # -*- mode: snippet -*-
-# name: kafkac
+# name: Kafka consumer
 # key: kafkac
 # --
-
 consumer = Consumer({
-    'bootstrap.servers': 'kafka.brokers:9092',
+    'group.id': $1,
+    'bootstrap.servers': os.environ.get('KAFKA_BOOTSTRAP_SERVERS'),
     'auto.offset.reset': 'smallest',
-    'group.id': None
+    'enable.auto.commit': False
 })
+consumer.subscribe(['example-topic'])
