@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: k8s-kafka-config
+# key: k8s-kafka-config
+# --
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: kafka.brokers:9092

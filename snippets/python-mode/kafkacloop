@@ -1,0 +1,21 @@
+# -*- mode: python -*-
+# key: kafkacloop
+# name: Kafka consumer loop
+# --
+while True:
+    msg = None
+    try:
+        msg = consumer.poll(timeout=1.0)
+        if msg is None:
+            continue
+        if msg.error():
+            raise KafkaException(msg.error())
+        process_msg(msg)
+        consumer.commit()
+    except Exception:
+        logger.exception("Error while processing messages.")
+        if msg:
+            partition = TopicPartition(msg.topic(), msg.partition())
+            partition = consumer.committed([partition])[0]
+            consumer.seek(partition)
+        time.sleep(1)
