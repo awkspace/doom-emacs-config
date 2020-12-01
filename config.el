@@ -75,6 +75,7 @@
   (setq-local tab-width 4)
   (setq-local c-basic-offset 4)
   (c-set-style "cc-mode")
+  (display-fill-column-indicator-mode t)
 )
 
 (add-to-list 'auto-mode-alist '(".sp\\'" . sourcepawn-mode))
