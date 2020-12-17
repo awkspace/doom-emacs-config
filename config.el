@@ -64,6 +64,13 @@
   (unless (file-remote-p default-directory)
     (funcall orig-fn)))
 
+;; c-mode
+
+(defun c-mode-config ()
+  (c-set-style "cc-mode"))
+
+(add-hook! 'c-mode-common-hook 'c-mode-config)
+
 ;; sourcepawn-mode
 
 (define-derived-mode sourcepawn-mode c-mode
