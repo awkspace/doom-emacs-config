@@ -52,6 +52,7 @@
        ;;eshell            ; a consistent, cross-platform shell (WIP)
        ;;term              ; terminals in Emacs
        vc                ; version-control and Emacs, sitting in a tree
+       (undo +tree)
 
        :tools
        ;;ansible
