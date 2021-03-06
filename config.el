@@ -242,3 +242,8 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (map! :map zpresent-mode-map :n "q" #'kill-current-buffer))
 
 (add-hook! 'zpresent-mode-hook 'zpresent-mode-config)
+
+;; plantuml
+
+(setq plantuml-jar-path "~/.local/share/plantuml/plantuml.jar")
+(setq plantuml-default-exec-mode 'jar)
