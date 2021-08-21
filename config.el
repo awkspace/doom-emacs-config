@@ -180,10 +180,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 ;; A bit more breathing room for git commit summaries.
 ;; This returns git-commit-summary-max-length to magit's default.
 
-(defun +vc|enforce-git-commit-conventions ()
-  (setq fill-column 72
-        git-commit-summary-max-length 68
-        git-commit-style-convention-checks '(overlong-summary-line non-empty-second-line)))
+(setq-hook! 'git-commit-mode-hook git-commit-summary-max-length 68)
 
 ;; Avoid [Display not ready] errors
 
