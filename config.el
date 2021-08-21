@@ -247,3 +247,22 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (setq plantuml-jar-path "~/.local/share/plantuml/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
+
+;; emojify
+
+(use-package! emojify
+  :hook (doom-first-input . global-emojify-mode))
+
+;; runfile
+
+(defun runfile-target ()
+  (interactive)
+  (let
+      ((runfile-targets (split-string (shell-command-to-string "run --list"))))
+    (ivy-read "run "
+              runfile-targets
+              :action '(lambda (x)
+                         (make-comint-in-buffer
+                          "runfile" "*runfile*"
+                          "run" nil x)
+                         (display-buffer "*runfile*")))))
