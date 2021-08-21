@@ -15,3 +15,4 @@
 (package! olivetti)
 (package! zpresent)
 (package! plantuml-mode)
+(package! prism)
