@@ -16,3 +16,4 @@
 (package! zpresent)
 (package! plantuml-mode)
 (package! prism)
+(package! emojify)
