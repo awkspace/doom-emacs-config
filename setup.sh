@@ -1,30 +1,29 @@
 #!/bin/sh
 
-if [ -d ~/.doom.d ]
+if [ -d "$HOME/.doom.d" ]
 then
-  git -C ~/.doom.d pull --rebase
+  git -C "$HOME/.doom.d" pull --rebase
 else
-  ssh -o ConnectTimeout=3 -T git@github.com </dev/null 2>&1 | grep "^Hi awkspace!" > /dev/null
-  if [[ $? -eq 0 ]]
+  if ssh -o ConnectTimeout=3 -T git@github.com </dev/null 2>&1 | grep "^Hi awkspace!" > /dev/null
   then
-    git clone ssh://git@github.com/awkspace/doom-emacs-config ~/.doom.d -o github
+    git clone ssh://git@github.com/awkspace/doom-emacs-config "$HOME/.doom.d" -o github
   else
-    git clone https://github.com/awkspace/doom-emacs-config ~/.doom.d -o github
+    git clone https://github.com/awkspace/doom-emacs-config "$HOME/.doom.d" -o github
   fi
 fi
 
-if [ -d ~/.emacs.d ] && [ ! -d ~/.emacs.d/.git ]
+if [ -d "$HOME/.emacs.d" ] && [ ! -d "$HOME/.emacs.d/.git" ]
 then
-  mv ~/.emacs.d ~/.emacs.d.bak
+  mv "$HOME/.emacs.d" "$HOME/.emacs.d.bak"
 fi
 
-if [ -d ~/.emacs.d ]
+if [ -d "$HOME/.emacs.d" ]
 then
-  git -C ~/.emacs.d pull --rebase
-  yes | ~/.emacs.d/bin/doom upgrade
+  git -C "$HOME/.emacs.d" pull --rebase
+  yes | "$HOME/.emacs.d/bin/doom" upgrade
 else
-  git clone https://github.com/hlissner/doom-emacs ~/.emacs.d -b develop -o github
+  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d" -b develop -o github
 fi
 
-yes | ~/.emacs.d/bin/doom sync
-yes | ~/.emacs.d/bin/doom upgrade
+yes | "$HOME/.emacs.d/bin/doom" sync
+yes | "$HOME/.emacs.d/bin/doom" upgrade
