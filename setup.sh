@@ -13,6 +13,11 @@ else
   fi
 fi
 
+if [ -d ~/.emacs.d ] && [ ! -d ~/.emacs.d/.git ]
+then
+  mv ~/.emacs.d ~/.emacs.d.bak
+fi
+
 if [ -d ~/.emacs.d ]
 then
   git -C ~/.emacs.d pull --rebase
