@@ -47,5 +47,18 @@ sudo apt-get install -y \
     pandoc \
     markdown
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-npm install -g marked
+which npm && npm install -g marked
+which go && GO111MODULE=on go get golang.org/x/tools/gopls@latest
+```
+
+## macos_install_emacs
+
+```sh
+brew install emacs
+```
+
+## macos_install_extras
+
+```sh
+brew install homebrew/cask-fonts/font-{go,noto}-mono
 ```
