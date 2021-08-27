@@ -203,7 +203,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 (setq olivetti-body-width 80)
 
 (map! :leader
-      (:desc "author" :prefix "a"
+      (:prefix ("a" . "author")
        :desc "Olivetti mode"   :n  "a" #'olivetti-mode
        :desc "Writerly font"   :n  "f" #'toggle-writerly-font
        :desc "Paragraph fill"  :nv "p" #'fill-paragraph))
@@ -263,3 +263,9 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
                           "runfile" "*runfile*"
                           "run" nil x)
                          (display-buffer "*runfile*")))))
+
+(map! :leader
+      (:prefix ("r" . "run")
+       :desc "Run target" :n "r" #'runfile-target))
+
+(set-popup-rule! "^\\*runfile" :size 1.0)
