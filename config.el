@@ -271,3 +271,10 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
        :desc "Run target" :n "r" #'runfile-target))
 
 (set-popup-rule! "^\\*runfile" :size 1.0 :ttl 0)
+
+;; go
+
+(defun awk-go-mode-config ()
+  (display-fill-column-indicator-mode 1)
+  )
+(add-hook! 'go-mode-hook 'awk-go-mode-config)
