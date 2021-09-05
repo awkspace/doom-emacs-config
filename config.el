@@ -255,7 +255,9 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 (defun runfile-target ()
   (interactive)
   (let
-      ((runfile-targets (split-string (shell-command-to-string "run --list"))))
+      ((runfile-targets
+        (split-string
+         (shell-command-to-string "run --list-targets 2>/dev/null"))))
     (ivy-read "run "
               runfile-targets
               :action '(lambda (x)
