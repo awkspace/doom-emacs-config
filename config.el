@@ -270,4 +270,4 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
       (:prefix ("r" . "run")
        :desc "Run target" :n "r" #'runfile-target))
 
-(set-popup-rule! "^\\*runfile" :size 1.0)
+(set-popup-rule! "^\\*runfile" :size 1.0 :ttl 0)
