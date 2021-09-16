@@ -228,7 +228,9 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (map! :localleader :map python-mode-map "t" nil)
   (map! :localleader
         :map python-mode-map
-        "t" #'python-pytest-dispatch))
+        "t" #'python-pytest-dispatch)
+  (flycheck-add-next-checker 'python-flake8 'lsp)
+  (flycheck-select-checker 'python-flake8))
 
 ;; zpresent
 
@@ -274,12 +276,11 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; go
 
-(defun awk-go-mode-config ()
+(add-hook! 'go-mode-hook
+  (flycheck-golangci-lint-setup)
   (display-fill-column-indicator-mode 1)
   (setq tab-width 8)
-  )
-(add-hook! 'go-mode-hook #'awk-go-mode-config)
-(defun run-fmt ()
-  (when (eq major-mode 'go-mode)
-    (shell-command "run fmt")))
-(add-hook 'after-save-hook #'run-fmt)
+  (flycheck-select-checker 'golangci-lint)
+  (add-hook! 'after-save-hook
+            (when (eq major-mode 'go-mode)
+              (shell-command "run fmt"))))
