@@ -276,5 +276,6 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (defun awk-go-mode-config ()
   (display-fill-column-indicator-mode 1)
+  (setq tab-width 8)
   )
 (add-hook! 'go-mode-hook 'awk-go-mode-config)
