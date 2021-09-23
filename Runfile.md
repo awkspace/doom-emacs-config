@@ -32,14 +32,25 @@ then
 fi
 cd "$HOME/.local/src/emacs-$EMACS_VERSION"
 sudo apt update
-sudo apt build-dep emacs25 -y
+. /etc/os-release
+if [ "$VERSION_CODENAME" = "bullseye" ]
+then
+    sudo apt build-dep emacs -y
+else
+    sudo apt build-dep emacs25 -y
+fi
 ./configure
 make -j $(nproc)
 sudo make install
 ```
 
-## debian_install_extras
+## debian_install_doom
+```
+requires:
+  - install
+```
 
+## debian_install_extras
 ```sh
 sudo apt-get install -y \
     fonts-go \
@@ -47,8 +58,8 @@ sudo apt-get install -y \
     pandoc \
     markdown
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-which npm && npm install -g marked
-which go && GO111MODULE=on go get golang.org/x/tools/gopls@latest
+if which npm; then npm install -g marked; fi
+if which go; then GO111MODULE=on go get golang.org/x/tools/gopls@latest; fi
 ```
 
 ## macos_install_emacs
