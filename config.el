@@ -229,7 +229,9 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (map! :localleader
         :map python-mode-map
         "t" #'python-pytest-dispatch)
-  (flycheck-add-next-checker 'python-flake8 'lsp)
+  (if (member 'lsp flycheck-checkers)
+      (flycheck-add-next-checker 'python-flake8 'lsp)
+    )
   (flycheck-select-checker 'python-flake8))
 
 ;; zpresent
