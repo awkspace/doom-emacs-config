@@ -125,6 +125,7 @@
   (turn-on-auto-fill)
   (typopunct-change-language 'english t)
   (typopunct-mode 1)
+  (setq markdown-fontify-code-blocks-natively t)
   (setq-local comment-use-syntax nil)
 
   ;; In markdown-mode, I'm more interested in matching Liquid comments than
