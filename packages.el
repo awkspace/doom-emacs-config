@@ -17,3 +17,4 @@
 (package! plantuml-mode)
 (package! prism)
 (package! emojify)
+(package! lsp-treemacs)
