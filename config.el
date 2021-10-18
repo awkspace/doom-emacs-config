@@ -286,4 +286,4 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (flycheck-select-checker 'golangci-lint)
   (add-hook! 'after-save-hook
             (when (eq major-mode 'go-mode)
-              (shell-command "run fmt"))))
+              (shell-command "run fmt >/dev/null"))))
