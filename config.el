@@ -256,13 +256,15 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   :hook (doom-first-input . global-emojify-mode))
 
 ;; runfile
+;; TODO consider using transient to set flags and bind to SPC r
 
 (defun runfile-target ()
   (interactive)
   (let
       ((runfile-targets
         (split-string
-         (shell-command-to-string "run --list-targets 2>/dev/null"))))
+         (shell-command-to-string
+          "run -l 2>/dev/null | awk '{print $1}'"))))
     (ivy-read "run "
               runfile-targets
               :action '(lambda (x)
