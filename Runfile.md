@@ -81,6 +81,7 @@ mkdir -p ~/.local/src
 git clone https://github.com/GroovyLanguageServer/groovy-language-server ~/.local/src/
 cd ~/.local/src/groovy-language-server
 ./gradlew build
-mkdir -p ~/.emacs.d/.cache/lsp
-cp build/libs/groovy-language-server-all.jar ~/.emacs.d/.cache/lsp/groovy-language-server-all.jar
+export LSP_DIR="$HOME/.emacs.d/.local/etc/lsp"
+mkdir -p "$LSP_DIR"
+cp build/libs/groovy-language-server-all.jar "$LSP_DIR/groovy-language-server-all.jar"
 ```
