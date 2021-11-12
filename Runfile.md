@@ -73,3 +73,14 @@ brew install emacs
 ```sh
 brew install homebrew/cask-fonts/font-{go,noto}-mono
 ```
+
+## lsp:groovy
+
+```sh
+mkdir -p ~/.local/src
+git clone https://github.com/GroovyLanguageServer/groovy-language-server ~/.local/src/
+cd ~/.local/src/groovy-language-server
+./gradlew build
+mkdir -p ~/.emacs.d/.cache/lsp
+cp build/libs/groovy-language-server-all.jar ~/.emacs.d/.cache/lsp/groovy-language-server-all.jar
+```
