@@ -22,7 +22,7 @@ then
   git -C "$HOME/.emacs.d" pull --rebase
   yes | "$HOME/.emacs.d/bin/doom" upgrade
 else
-  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d" -b develop -o github
+  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d" -o github
 fi
 
 yes | "$HOME/.emacs.d/bin/doom" sync
