@@ -44,6 +44,8 @@
   (setq org-log-done-with-time nil)
   (map! :localleader :map org-mode-map :n "z" #'zpresent))
 
+(remove-hook! 'org-mode-hook #'flyspell-mode)
+
 ;; Do not ignore files over SSH in recentf
 
 (after! recentf
