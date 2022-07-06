@@ -18,8 +18,8 @@
            "WAIT(w)"  ; Something external is holding up this task
            "HOLD(h)"  ; This task is paused/on hold because of me
            "|"
-           "KILL(k)"  ; Task successfully completed
-           "DONE(r)") ; Task was cancelled, aborted or is no longer applicable
+           "DONE(d)"  ; Task successfully completed
+           "KILL(k)") ; Task was cancelled, aborted or is no longer applicable
           )
         org-todo-keyword-faces
         '(("STRT" . +org-todo-active)
