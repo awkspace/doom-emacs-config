@@ -245,8 +245,8 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; emojify
 
-(use-package! emojify
-  :hook (doom-first-input . global-emojify-mode))
+;; (use-package! emojify
+;;  :hook (doom-first-input . global-emojify-mode))
 
 ;; runfile
 ;; TODO consider using transient to set flags and bind to SPC r
