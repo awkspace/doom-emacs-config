@@ -1,5 +1,8 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+;; Default line length
+(set-fill-column 80)
+
 ;; Give me my themes back! >:(
 
 (put 'customize-themes 'disabled nil)
@@ -114,7 +117,6 @@
 
 (defun markdown-mode-config ()
 
-  (set-fill-column 80)
   (turn-on-auto-fill)
   (typopunct-change-language 'english t)
   (typopunct-mode 1)
@@ -274,7 +276,8 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 (add-hook! 'go-mode-hook
   (flycheck-golangci-lint-setup)
   (display-fill-column-indicator-mode 1)
-  (setq tab-width 4)
+  (setq tab-width 8)
+  (set-fill-column 100)
   (flycheck-select-checker 'golangci-lint)
   (add-hook! 'after-save-hook
             (when (eq major-mode 'go-mode)
