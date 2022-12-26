@@ -2,6 +2,10 @@
 
 ;; Default line length
 (set-fill-column 80)
+(add-hook! 'text-mode-hook
+  (display-fill-column-indicator-mode t))
+(add-hook! 'prog-mode-hook
+  (display-fill-column-indicator-mode t))
 
 ;; Give me my themes back! >:(
 
@@ -78,7 +82,6 @@
   (setq-local tab-width 4)
   (setq-local c-basic-offset 4)
   (c-set-style "cc-mode")
-  (display-fill-column-indicator-mode t)
 )
 
 (add-to-list 'auto-mode-alist '(".sp\\'" . sourcepawn-mode))
@@ -274,11 +277,8 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 ;; go
 
 (add-hook! 'go-mode-hook
-  (flycheck-golangci-lint-setup)
-  (display-fill-column-indicator-mode 1)
+  (lsp-deferred)
   (setq tab-width 8)
   (set-fill-column 100)
-  (flycheck-select-checker 'golangci-lint)
-  (add-hook! 'after-save-hook
-            (when (eq major-mode 'go-mode)
-              (shell-command "go fmt >/dev/null"))))
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
