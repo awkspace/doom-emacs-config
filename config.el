@@ -283,3 +283,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   (set-fill-column 100)
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
+
+;; company-mode
+(add-hook! 'company-mode-hook
+  (define-key company-active-map (kbd "RET") 'company-complete-selection))
