@@ -278,6 +278,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (add-hook! 'go-mode-hook
   (lsp-deferred)
+  (flycheck-golangci-lint-setup)
   (setq tab-width 8)
   (set-fill-column 100)
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
