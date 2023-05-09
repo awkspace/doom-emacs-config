@@ -293,3 +293,25 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (add-hook! 'lua-mode-hook
   (setq lsp-lua-diagnostics-disable ["lowercase-global"]))
+
+;; squirrel
+(after! flycheck
+  (flycheck-define-checker squirrel-comp
+    "A Squirrel syntax checker."
+  :command ("sq" "-o" "/dev/null" "-c" source)
+  :error-patterns (
+                   (error line-start (file-name) " line = (" line ") column = (" column
+                          ") : error " (message) line-end)
+                   )
+  :error-filter (lambda (errors)
+                  (seq-do (lambda (err)
+                            (when (flycheck-error-column err)
+                              (setf
+                               (flycheck-error-column err)
+                               (- (flycheck-error-column err) 1)))
+                            )
+                          errors)
+                  errors)
+  :modes (squirrel-mode))
+  (add-to-list 'flycheck-checkers 'squirrel-comp)
+  )
