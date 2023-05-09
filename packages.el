@@ -18,3 +18,6 @@
 (package! prism)
 (package! emojify)
 (package! lsp-treemacs)
+(package! powershell)
+(package! squirrel-mode
+  :recipe (:host github :repo "thechampagne/squirrel-mode"))
