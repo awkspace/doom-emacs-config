@@ -315,3 +315,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   :modes (squirrel-mode))
   (add-to-list 'flycheck-checkers 'squirrel-comp)
   )
+
+;; org-roam
+(setq org-roam-directory "~/org/roam")
+(setq org-roam-dailies-directory "~/org/daily")
