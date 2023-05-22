@@ -15,6 +15,7 @@
 
 ;; uniquify buffers
 ;; https://github.com/doomemacs/doomemacs/issues/6205
+(load! "persp-mode-fix")
 (after! persp-mode
   (setq-hook! 'persp-mode-hook uniquify-buffer-name-style 'forward))
 
