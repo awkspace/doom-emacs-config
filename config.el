@@ -8,12 +8,15 @@
   (display-fill-column-indicator-mode t))
 
 ;; Give me my themes back! >:(
-
 (put 'customize-themes 'disabled nil)
 
 ;; more sensible comint defaults
-
 (setq comint-prompt-read-only nil)
+
+;; uniquify buffers
+;; https://github.com/doomemacs/doomemacs/issues/6205
+(after! persp-mode
+  (setq-hook! 'persp-mode-hook uniquify-buffer-name-style 'forward))
 
 ;; company-mode
 
