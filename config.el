@@ -6,6 +6,8 @@
   (display-fill-column-indicator-mode t))
 (add-hook! 'prog-mode-hook
   (display-fill-column-indicator-mode t))
+(add-hook! 'org-mode-hook
+  (display-fill-column-indicator-mode -1))
 
 ;; Give me my themes back! >:(
 (put 'customize-themes 'disabled nil)
