@@ -297,6 +297,8 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; lua
 
+(setq lsp-clients-lua-language-server-bin
+      "~/.local/share/lua-language-server/bin/lua-language-server")
 (add-hook! 'lua-mode-hook
   (setq lsp-lua-diagnostics-disable ["lowercase-global"]))
 
