@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+
+set -e
+
+if ! which apt
+then
+    >&2 echo "only Debian distros are supported"
+    exit 1
+fi
+
+sudo apt update
+sudo apt install -y \
+    curl \
+    fonts-go \
+    fonts-noto-mono \
+    markdown \
+    pandoc
+sudo apt build-dep emacs -y
+
+if ! which curl
+then
+    sudo apt install -y curl
+fi
+
+EMACS_VERSION=$(curl https://ftp.gnu.org/gnu/emacs/ 2>/dev/null | \
+    sed -nr 's/^.+<a href="emacs-([0-9]+\.[0-9]+)\.tar\.xz">.+$/\1/p' | \
+    tail -n1)
+
+mkdir -p "$HOME/.local/src"
+if [ ! -d "$HOME/.local/src/emacs-$EMACS_VERSION" ]
+then
+    cd "$HOME/.local/src"
+    if [ ! -f "$HOME/.local/src/emacs-$EMACS_VERSION.tar.gz" ]
+    then
+        wget "https://ftp.gnu.org/gnu/emacs/emacs-$EMACS_VERSION.tar.gz"
+    fi
+    tar xapf "$HOME/.local/src/emacs-$EMACS_VERSION.tar.gz"
+fi
+
+(
+    cd "$HOME/.local/src/emacs-$EMACS_VERSION"
+
+    ./configure
+    make -j $(nproc)
+    sudo make install
+)
