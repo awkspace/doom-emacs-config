@@ -10,7 +10,6 @@
 
 (package! dockerfile-mode)
 (package! groovy-mode)
-(package! docker-tramp)
 (package! yaml-mode)
 (package! olivetti)
 (package! zpresent)
