@@ -22,9 +22,14 @@ then
     sudo apt install -y curl
 fi
 
-EMACS_VERSION=$(curl https://ftp.gnu.org/gnu/emacs/ 2>/dev/null | \
-    sed -nr 's/^.+<a href="emacs-([0-9]+\.[0-9]+)\.tar\.xz">.+$/\1/p' | \
-    tail -n1)
+if [ $# -gt 0 ]
+then
+    EMACS_VERSION=$1
+else
+    EMACS_VERSION=$(curl https://ftp.gnu.org/gnu/emacs/ 2>/dev/null | \
+        sed -nr 's/^.+<a href="emacs-([0-9]+\.[0-9]+)\.tar\.xz">.+$/\1/p' | \
+        tail -n1)
+fi
 
 mkdir -p "$HOME/.local/src"
 if [ ! -d "$HOME/.local/src/emacs-$EMACS_VERSION" ]
