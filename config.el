@@ -21,6 +21,11 @@
 (after! persp-mode
   (setq-hook! 'persp-mode-hook uniquify-buffer-name-style 'forward))
 
+;; lsp-mode
+
+(add-hook! 'lsp-mode-hook
+  (lsp-headerline-breadcrumb-mode 1))
+
 ;; company-mode
 
 (add-hook! 'company-mode-hook
@@ -322,5 +327,6 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
   )
 
 ;; org-roam
+
 (setq org-roam-directory "~/org/roam")
 (setq org-roam-dailies-directory "~/org/daily")
