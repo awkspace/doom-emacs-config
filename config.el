@@ -109,7 +109,7 @@
 ;; Fonts
 
 (setq writerly-font-active nil)
-(setq default-font (font-spec :family "Noto Mono" :size 13))
+(setq default-font (font-spec :family "Hack" :size 13))
 (setq writerly-font (font-spec :family "Go Mono" :size 13))
 
 (defun toggle-writerly-font ()
