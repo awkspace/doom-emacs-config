@@ -31,7 +31,8 @@
        ;;pretty-code       ; replace bits of code with pretty symbols
        ;;tabbar            ; FIXME an (incomplete) tab bar for Emacs
        ;;unicode           ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
+       (vc-gutter        ; vcs diff in the fringe
+        +pretty)
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        workspaces        ; tab emulation, persistence & separate workspaces
        window-select     ; visually switch windows
