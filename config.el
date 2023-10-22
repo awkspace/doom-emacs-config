@@ -291,10 +291,10 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 (set-popup-rule! "^\\*runfile" :size 1.0 :ttl 0)
 
 ;; go
-
+(after! flycheck
+  (flycheck-golangci-lint-setup))
 (add-hook! 'go-mode-hook
-  (lsp-deferred)
-  (flycheck-golangci-lint-setup)
+  (setq flycheck-local-checkers '((lsp . ((next-checkers . (golangci-lint))))))
   (setq tab-width 8)
   (set-fill-column 100)
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
@@ -323,8 +323,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
                           errors)
                   errors)
   :modes (squirrel-mode))
-  (add-to-list 'flycheck-checkers 'squirrel-comp)
-  )
+  (add-to-list 'flycheck-checkers 'squirrel-comp))
 
 ;; org-roam
 
