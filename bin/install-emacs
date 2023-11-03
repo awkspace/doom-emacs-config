@@ -45,7 +45,13 @@ fi
 (
     cd "$HOME/.local/src/emacs-$EMACS_VERSION"
 
-    ./configure --with-native-compilation
+    if [ "$(uname -m)" = "aarch64" ] && [ "$(uname -s)" = "Linux" ] 
+    then
+	    # raspberry pi
+	    ./configure
+    else
+	    ./configure --with-native-compilation
+    fi
     make -j $(nproc)
     sudo make install
 )
