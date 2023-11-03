@@ -329,3 +329,7 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (setq org-roam-directory "~/org/roam")
 (setq org-roam-dailies-directory "~/org/daily")
+
+;; envrc
+
+(use-package envrc :config (envrc-global-mode))

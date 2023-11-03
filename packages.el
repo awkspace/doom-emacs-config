@@ -20,6 +20,7 @@
 (package! powershell)
 (package! squirrel-mode
   :recipe (:host github :repo "thechampagne/squirrel-mode"))
+(package! envrc)
 
 ;; https://github.com/org-roam/org-roam/issues/2361
 (package! org :pin "ca873f7")
