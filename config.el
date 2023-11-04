@@ -24,12 +24,28 @@
 ;; lsp-mode
 
 (add-hook! 'lsp-mode-hook
-  (lsp-headerline-breadcrumb-mode 1))
+  (lsp-headerline-breadcrumb-mode 1)
+  (setq-local completion-at-point-functions
+              (list (cape-capf-super
+                     #'codeium-completion-at-point
+                     #'lsp-completion-at-point))))
 
 ;; company-mode
 
 (add-hook! 'company-mode-hook
-  (define-key company-active-map (kbd "RET") 'company-complete-selection))
+  (define-key company-active-map (kbd "RET") 'company-complete-selection)
+  (setq-local completion-at-point-functions
+              (mapcar #'cape-company-to-capf
+                      (list
+                       #'company-files
+                       #'company-keywords
+                       #'company-dabbrev)))
+  (setq-default
+   company-idle-delay 0.05
+   company-require-match nil
+   company-minimum-prefix-length 0
+   company-frontends '(company-preview-frontend)
+   ))
 
 ;; org-mode
 
@@ -334,3 +350,25 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (use-package! envrc :config (envrc-global-mode))
 
+;; codeium
+
+(use-package! codeium
+    :config
+    (setq use-dialog-box nil) ;; do not use popup boxes
+
+    (setq codeium-mode-line-enable
+        (lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
+    (add-to-list 'mode-line-format '(:eval (car-safe codeium-mode-line)) t)
+
+    (setq codeium-api-enabled
+        (lambda (api)
+            (memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion))))
+
+    (defun my-codeium/document/text ()
+        (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (min (+ (point) 1000) (point-max))))
+
+    (defun my-codeium/document/cursor_offset ()
+        (codeium-utf8-byte-length
+            (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (point))))
+    (setq codeium/document/text 'my-codeium/document/text)
+    (setq codeium/document/cursor_offset 'my-codeium/document/cursor_offset))
