@@ -332,4 +332,5 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 ;; envrc
 
-(use-package envrc :config (envrc-global-mode))
+(use-package! envrc :config (envrc-global-mode))
+
