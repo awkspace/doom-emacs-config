@@ -23,7 +23,7 @@
 
 ;; lsp-mode
 
-(add-hook! 'lsp-mode-hook
+(add-hook! 'lsp-completion-mode-hook
   (lsp-headerline-breadcrumb-mode 1)
   (setq-local completion-at-point-functions
               (list (cape-capf-super
@@ -37,8 +37,7 @@
   (setq-default
    company-idle-delay 0.05
    company-require-match nil
-   company-minimum-prefix-length 0
-   ))
+   company-minimum-prefix-length 0))
 
 ;; org-mode
 
