@@ -34,17 +34,10 @@
 
 (add-hook! 'company-mode-hook
   (define-key company-active-map (kbd "RET") 'company-complete-selection)
-  (setq-local completion-at-point-functions
-              (mapcar #'cape-company-to-capf
-                      (list
-                       #'company-files
-                       #'company-keywords
-                       #'company-dabbrev)))
   (setq-default
    company-idle-delay 0.05
    company-require-match nil
    company-minimum-prefix-length 0
-   company-frontends '(company-preview-frontend)
    ))
 
 ;; org-mode
@@ -354,7 +347,6 @@ See URL 'https://github.com/awslabs/cfn-python-lint'."
 
 (use-package! codeium
   :config
-  (setq use-dialog-box nil) ;; do not use popup boxes
   (setq codeium-mode-line-enable
         (lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
   (add-to-list 'mode-line-format '(:eval (car-safe codeium-mode-line)) t)
