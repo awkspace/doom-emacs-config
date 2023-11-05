@@ -23,11 +23,11 @@
 
 ;; lsp-mode
 
-(setq lsp-ai-completions nil)
 (add-hook! 'lsp-completion-mode-hook
   (lsp-headerline-breadcrumb-mode 1)
   (setq-local completion-at-point-functions
-              (list #'codeium-completion-at-point)))
+              (list #'codeium-completion-at-point))
+  (setq-local lsp-ai-completions t))
 
 (defun toggle-completions ()
   (interactive)
@@ -35,12 +35,12 @@
       (progn
         (setq-local completion-at-point-functions
                     (list #'lsp-completion-at-point))
-        (setq lsp-ai-completions nil))
+        (setq-local lsp-ai-completions nil))
     (progn
       (setq-local completion-at-point-functions
                   (list #'codeium-completion-at-point))
-      (setq lsp-ai-completions t))))
-(toggle-completions)
+      (setq-local lsp-ai-completions t))))
+
 (map! :desc "AI autocomplete" :n "SPC t a" #'toggle-completions)
 
 ;; someday when cape-capf-super is better:
