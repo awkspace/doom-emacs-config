@@ -25,21 +25,29 @@
 
 (add-hook! 'lsp-completion-mode-hook
   (lsp-headerline-breadcrumb-mode 1)
-  (setq-local completion-at-point-functions
-              (list #'codeium-completion-at-point))
-  (setq-local lsp-ai-completions t))
+  (toggle-completions))
+
+;; ai completions
 
 (defun toggle-completions ()
   (interactive)
-  (if (eq lsp-ai-completions t)
+  (unless (boundp 'ai-completions) (setq-local ai-completions nil))
+  (if (eq ai-completions t)
       (progn
+        (setq-local company-backends
+                    company-backends--standard)
         (setq-local completion-at-point-functions
-                    (list #'lsp-completion-at-point))
-        (setq-local lsp-ai-completions nil))
+                    completion-at-point-functions--standard)
+        (setq-local ai-completions nil))
     (progn
+      (setq-local completion-at-point-functions--standard
+                  completion-at-point-functions)
       (setq-local completion-at-point-functions
                   (list #'codeium-completion-at-point))
-      (setq-local lsp-ai-completions t))))
+      (setq-local company-backends--standard
+                  company-backends)
+      (setq-local company-backends '((company-capf)))
+      (setq-local ai-completions t))))
 
 (map! :desc "AI autocomplete" :n "SPC t a" #'toggle-completions)
 
